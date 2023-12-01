@@ -1,0 +1,196 @@
+% Title: Software Requirements Specification
+% Project: BusMate
+% Version: 2
+
+\documentclass{BusMateSRS}
+
+\def\projectName{BusMate}
+\def\projectShortDescription{Real-Time Microbus Transportation System}
+\def\docVersion{Version 2}
+
+\def\nameAndrew{Andrew Amin}
+\def\nameKarim{Karim Muhammad}
+\def\nameHamdy{Muhammad Hamdy}
+\def\nameHossam{Muhammad Hossam}
+\def\docAuthors{\nameAndrew \and \nameKarim \and \nameHamdy \and \nameHossam}
+
+\def\pubDepartment{Department of Computer and Systems Engineering}
+\def\pubFaculty{Faculty of Engineering}
+\def\pubUniveristy{Helwan University}
+\def\docPublishers{\pubDepartment, \pubFaculty, \pubUniveristy}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+\chapter*{Revision History}
+\begin{table}[ht]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|l|l|X|}
+    \hline
+    \textbf{Version} & \textbf{Date} & \textbf{Edited By} & \textbf{Description} \\
+    \hline
+    1 & Oct 18, 2023 & \nameAndrew & 
+    Initial functional requirements and users definition \\
+    \hline
+    1 & Oct 21, 2023 & \nameKarim & 
+    Initial interface and non-functional requirements \\
+    \hline
+    1 & Oct 22, 2023 & \nameHamdy &
+    Project purpose, scope and redefine users \\
+    \hline
+    1 & Oct 23, 2023 & \nameHossam &
+    System architecture and block diagram \\
+    \hline
+    2 & Nov 7, 2023 & \nameAndrew & 
+    Rewrite functional requirements, purpose and scope \\
+    \hline
+  \end{tabularx}
+  \caption{Revision History}
+  \label{tab:revision-history}
+\end{table}
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+
+\chapter{Introduction}
+\section{Purpose}
+The purpose of this document is to provide a detailed software requirements 
+specification for the {\projectName} Web Application. 
+It outlines the functionalities, constraints, and performance requirements 
+of the application.
+
+\section{Scope}
+The Microbus Transportation Web Application aims to connect microbus drivers 
+and passengers in real-time. 
+It addresses the challenge of passengers waiting for microbuses that 
+do not align with their needs, while drivers are unaware of potential 
+passengers along their routes. 
+The application seeks to improve the transportation experience by providing 
+a platform for efficient communication and coordination between 
+drivers and passengers.
+
+\section{Definitions, Acronyms, and Abbreviations}
+\begin{itemize}
+  \item {\projectName}: 
+    The name of project
+  \item SRS: 
+    Software Requirements Specification
+  \item IEEE: 
+    Institute of Electrical and Electronics Engineers
+  \item Microbus: 
+    A small public transportation vehicle that can accommodate 
+    a limited number of passengers.
+  \item Passenger:
+    An individual who intends to use the microbus transportation service.
+  \item Driver:
+    An individual who operates a microbus and provides transportation 
+    services to passengers.
+  \item Web Application:
+    A software application that is accessed through a web browser and provides 
+    functionality and services over the internet.
+  \item Real-time: The ability to provide and receive information 
+    instantaneously or with minimal delay.
+\end{itemize}
+
+\section{References}
+\begin{itemize}
+  \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications
+\end{itemize}
+
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+\chapter{Overall Description}
+\section{Product Perspective}
+The Microbus Transportation Web Application will be a standalone system, 
+interacting with microbus drivers and passengers through a user-friendly 
+web interface. It will not rely on any external systems for its core 
+functionality, but may utilize geolocation services and payment gateways for 
+additional features.
+
+\section{Product Features}
+\begin{itemize}
+  \item Real-time microbus tracking and availability display
+  \item Passenger registration and profile management
+  \item Driver registration and profile management
+  \item Route selection and scheduling for drivers
+  \item Passenger search and booking for available microbuses
+  \item Notifications for drivers and passengers regarding trip updates
+\end{itemize}
+
+\section{User Classes and Characteristics}
+The Microbus Transportation Web Application will have two primary user classes: 
+passengers and drivers. Passengers will include individuals who rely on 
+microbuses for transportation, while drivers will be microbus owners or 
+operators. 
+Both user classes are expected to have basic computer literacy and 
+access to the internet.
+
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+\chapter{Specific Requirements}
+\section{External Interface Requirements}
+\subsection{User Interfaces}
+The web application will have a user-friendly interface with intuitive 
+navigation and clear instructions. It will support multiple devices and 
+provide accessibility features for users with disabilities.
+
+\subsection{Hardware Interfaces}
+The application will run on standard hardware configurations, 
+including desktops, laptops, and mobile devices. 
+It will utilize GPS capabilities for real-time tracking.
+
+\subsection{Software Interfaces}
+The application will integrate with geolocation services for accurate tracking 
+and mapping. It will also integrate with payment gateways for secure online 
+transactions.
+
+\section{Functional Requirements}
+\subsection{Passenger Functionality}
+\begin{enumerate}
+  \item Register as a passenger by providing necessary details
+  \item Search for available microbuses based on location and timing preferences
+  \item View microbus details, including driver information and capacity
+  \item Book a seat on a selected microbus
+  \item Receive notifications regarding trip updates
+\end{enumerate}
+
+\subsection{Driver Functionality}
+\begin{enumerate}
+  \item Register as a driver by providing necessary details
+  \item Create and manage routes, specifying pickup and drop-off points
+  \item Set availability and capacity for each microbus
+  \item Receive booking requests from passengers
+  \item Confirm or reject booking requests
+  \item Receive notifications regarding trip updates
+\end{enumerate}
+
+\section{Performance Requirements}
+\begin{itemize}
+  \item The application should be able to handle a large number of simultaneous 
+    users without significant performance degradation.
+  \item Real-time tracking and updates should have minimal delay, 
+    providing accurate information to both drivers and passengers.
+  \item The application should be responsive and provide a seamless user 
+    experience, with quick loading times and minimal downtime for maintenance.
+\end{itemize}
+
+
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+\chapter{Conclusion}
+This Software Requirements Specification document has outlined the functional 
+and non-functional requirements for the Microbus Transportation Web Application. 
+It provides a comprehensive understanding of the application's purpose, scope, 
+and specific requirements, following the IEEE Standard for SRS.
+
+
+
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+\end{document}
