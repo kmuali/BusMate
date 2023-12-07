@@ -31,7 +31,7 @@
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 \chapter*{Revision History}
-\begin{table}[ht]
+\begin{table}[h!]
   \centering
   \begin{tabularx}{\textwidth}{|c|l|l|X|}
     \hline
@@ -52,6 +52,18 @@
     2 & Nov 7, 2023 & \nameAndrew & 
     Rewrite functional requirements, purpose and scope \\
     \hline
+    2 & Dec 2, 2023 & \nameHamdy & 
+    Designed the database as an entity relationship diagram \\
+    \hline
+    2 & Dec 5, 2023 & \nameHossam & 
+    Designed the use-case diagram \\
+    \hline
+    2 & Dec 5, 2023 & \nameAndrew &
+    Designed the class diagram  \\
+    \hline
+    2 & Dec 7, 2023 & \nameKarim &
+    Added various classes and revised whole document \\
+    \hline
   \end{tabularx}
   \caption{Revision History}
   \label{tab:revision-history}
@@ -62,20 +74,27 @@
 
 \chapter{Introduction}
 \section{Purpose}
-The purpose of this document is to provide a detailed software requirements 
-specification for the {\projectName} Web Application. 
-It outlines the functionalities, constraints, and performance requirements 
+The purpose of the Software Requirements Specification (SRS) is to provide 
+a detailed description of the Microbus Transportation Web Application. 
+It serves as a comprehensive document that outlines the functional and 
+non-functional requirements, constraints, and dependencies of the system. 
+
+The SRS acts as a reference for the development team, stakeholders, and anyone 
+involved in the project to understand the scope, objectives, and specifications 
 of the application.
 
+
 \section{Scope}
-The Microbus Transportation Web Application aims to connect microbus drivers 
-and passengers in real-time. 
+\emph{\projectName}, The Microbus Transportation Web Application aims to 
+connect microbus drivers and passengers in real-time. 
 It addresses the challenge of passengers waiting for microbuses that 
-do not align with their needs, while drivers are unaware of potential 
-passengers along their routes. 
+do not align with their needs, while drivers are unaware of potential passengers 
+along their routes. 
+
 The application seeks to improve the transportation experience by providing 
-a platform for efficient communication and coordination between 
-drivers and passengers.
+a platform for efficient communication and coordination between drivers and 
+passengers. 
+
 
 \section{Definitions, Acronyms, and Abbreviations}
 \begin{itemize}
@@ -102,8 +121,15 @@ drivers and passengers.
 
 \section{References}
 \begin{itemize}
-  \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications
+  \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements 
+    Specifications, \url{http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf}.
 \end{itemize}
+
+%% TODO:
+% \section{Overview}
+% This subsection should
+% a) Describe what the rest of the SRS contains;
+% b) Explain how the SRS is organized.
 
 
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
@@ -132,7 +158,14 @@ microbuses for transportation, while drivers will be microbus owners or
 operators. 
 Both user classes are expected to have basic computer literacy and 
 access to the internet.
+We prototyped a block diagram as in figure \ref{fig:system-block-diagram}.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\columnwidth]{drawings/system-block-diagram.drawio.png}
+  \caption{System Block Diagram}
+  \label{fig:system-block-diagram}
+\end{figure}
 
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 \chapter{Specific Requirements}
@@ -141,8 +174,41 @@ access to the internet.
 The web application will have a user-friendly interface with intuitive 
 navigation and clear instructions. It will support multiple devices and 
 provide accessibility features for users with disabilities.
+We have prototyped some user interfaces as in figures 
+\ref{fig:ui-prototype1}, \ref{fig:ui-prototype2} and \ref{fig:ui-prototype3}.
 
-\begin{figure}[ht]
+\subsubsection{General UI}
+\begin{itemize}
+  \item Welcome or login page: 
+    includes login form and short description
+  \item Create account: 
+    includes registration form as either a driver or a passenger
+\end{itemize}
+
+\subsubsection{Driver UI}
+\begin{itemize}
+  \item Driver homepage: 
+    includes hello message and buttons to start a trip, bank-card settings, 
+    account settings, and logout
+  \item Start trip:
+    includes cancel button and list of routes to choose from, delete, edit, 
+    or add a new route.
+  \item Driving now:
+    includes end trip button, complete/available radio buttons and 
+    a list of notifications of passengers' 
+    ride requests with accept/reject buttons, and fee amount
+\end{itemize}
+
+\subsubsection{Passenger UI}
+\begin{itemize}
+  \item Passenger homepage:
+    includes hello message and buttons to ride, bank-card settings, 
+    account settings, and logout
+  \item Ride: 
+    includes a map with available routes pins to be clicked and a list
+\end{itemize}
+
+\begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
@@ -172,10 +238,10 @@ provide accessibility features for users with disabilities.
     \label{fig:ui6}
   \end{subfigure}
   \caption{UI Prototype (General)}
-  \label{fig:ui-prototype}
+  \label{fig:ui-prototype1}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
@@ -205,10 +271,10 @@ provide accessibility features for users with disabilities.
     \label{fig:ui9}
   \end{subfigure}
   \caption{UI Prototype (Driver)}
-  \label{fig:ui-prototype}
+  \label{fig:ui-prototype2}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
@@ -217,7 +283,7 @@ provide accessibility features for users with disabilities.
     \label{fig:ui4}
   \end{subfigure}
   \caption{UI Prototype (Passenger)}
-  \label{fig:ui-prototype}
+  \label{fig:ui-prototype3}
 \end{figure}
 
 \subsection{Hardware Interfaces}
@@ -250,7 +316,26 @@ transactions.
   \item Receive notifications regarding trip updates
 \end{enumerate}
 
-\section{Performance Requirements}
+\subsection{Web Server Functionality}
+\begin{enumerate}
+  \item Send notifications to passengers
+  \item Send notifications to drivers 
+\end{enumerate}
+
+The previous functions are viewed as a use-case diagram in 
+figure \ref{fig:usecase-diagram}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=\columnwidth]{drawings/usecase-diagram.drawio.png}
+  \end{center}
+  \caption{Use-case Diagram}
+  \label{fig:usecase-diagram}
+\end{figure}
+
+
+\section{Non-functional Requirements}
+\subsection{Performance Requirements}
 \begin{itemize}
   \item The application should be able to handle a large number of simultaneous 
     users without significant performance degradation.
@@ -261,13 +346,35 @@ transactions.
 \end{itemize}
 
 
-
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
-\chapter{Conclusion}
-This Software Requirements Specification document has outlined the functional 
-and non-functional requirements for the Microbus Transportation Web Application. 
-It provides a comprehensive understanding of the application's purpose, scope, 
-and specific requirements, following the IEEE Standard for SRS.
+\section{System Design}
+
+\subsection{Database Design}
+
+The initial prototyping of the database is included in figure 
+\ref{fig:entity-relationship-diagram}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=\columnwidth]{drawings/entity-relationship-diagram.drawio.png}
+  \end{center}
+  \caption{Entity Relationship Diagram}
+  \label{fig:entity-relationship-diagram}
+\end{figure}
+
+\subsection{Class Diagram}
+The initial class diagram of the application is included in figure 
+\ref{fig:class-diagram}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=\columnwidth]{drawings/class-diagram.drawio.png}
+  \end{center}
+  \caption{Class Diagram}
+  \label{fig:class-diagram}
+\end{figure}
+
+
 
 
 
