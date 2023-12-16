@@ -1,11 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}BusMate Index{% endblock %}
+{% block title %}BusMate{% endblock %}
 
 {% block main %}
 
-<div class="container">
-  Index Content here, includes login and register link
-</div>
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">
+        Welcome on BusMate!
+      </h1>
+      <p class="lead text-body-secondary">
+      Real-Time Microbus Transportation System
+      </p>
+      <p>
+      <a href="register" class="btn btn-light">Create Account</a>
+      <a href="login" class="btn btn-light">Login</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 text-center container">
+  <p class="foot text-body-secondary">
+  Response datetime from server: {{ datetime }}
+  </p>
+</section>
 
 {% endblock %}
