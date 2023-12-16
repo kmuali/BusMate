@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}BusMate - Create Account{% endblock %}
+
+{% block main %}
+
+<main class="form-signin w-50 m-auto">
+  <div class="lead p-4">
+    <h1 class="fw-light text-center">
+      Create Account
+    </h1>
+  </div>
+  <form>
+    <div class="mb-3 row">
+      <div class="col">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="name" class="form-control" id="firstname">
+      </div>
+      <div class="col">
+        <label for="familyname" class="form-label">Family Name</label>
+        <input type="name" class="form-control" id="familyname">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPhone1" class="form-label">Phone Number</label>
+      <input type="phone" class="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp">
+      <div id="phoneHelp" class="form-text">We'll never share your phone number with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <fieldset class="mb-3">
+      <legend>Account Type</legend>
+      <div class="form-check">
+        <input type="radio" name="radios" class="form-check-input" id="exampleRadio1" checked>
+        <label class="form-check-label" for="exampleRadio1">Passenger, I need a ride.</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="radios" class="form-check-input" id="exampleRadio2">
+        <label class="form-check-label" for="exampleRadio2">Driver, I ride a microbus.</label>
+      </div>
+    </fieldset>
+    <!-- <div class="mb-3"> -->
+    <!--   <label class="form-label" for="customFile">Upload</label> -->
+    <!--   <input type="file" class="form-control" id="customFile"> -->
+    <!-- </div> -->
+    <div class="mb-3 form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+      <label class="form-check-label" for="flexSwitchCheckChecked">I want online payment</label>
+    </div>
+
+    <div class="mb-3 row">
+      <div class="col-auto">
+        <label for="cvv" class="form-label">Card ID</label>
+        <input type="number" class="form-control" id="cvv">
+      </div>
+      <div class="col">
+        <label for="cvv" class="form-label">YY</label>
+        <input type="number" class="form-control" id="cvv">
+      </div>
+      <div class="col">
+        <label for="cvv" class="form-label">MM</label>
+        <input type="number" class="form-control" id="cvv">
+      </div>
+      <div class="col">
+        <label for="cvv" class="form-label">CVV</label>
+        <input type="number" class="form-control" id="cvv">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-3 mt-3">Register</button>
+
+    <div class="form-text">Have you already registered? <a href="/login">Login</a></div>
+  </form>
+</main>
+
+{% endblock %}
