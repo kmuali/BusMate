@@ -1,6 +1,6 @@
 % Title: Software Requirements Specification
 % Project: BusMate
-% Version: 2
+% Version: 3
 
 \documentclass{BusMateSRS}
 \usepackage{graphicx} 
@@ -8,7 +8,7 @@
 
 \def\projectName{BusMate}
 \def\projectShortDescription{Real-Time Microbus Transportation System}
-\def\docVersion{Version 2}
+\def\docVersion{Version 3}
 
 \def\nameAndrew{Andrew Amin}
 \def\nameKarim{Karim Muhammad}
@@ -31,7 +31,7 @@
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 \chapter*{Revision History}
-\begin{table}[h!]
+\begin{table}[ht!]
 	\centering
 	\begin{tabularx}{\textwidth}{|c|l|l|X|}
 		\hline
@@ -63,6 +63,9 @@
 		\hline
 		2                & Dec 7, 2023   & \nameKarim         &
 		Added various classes and revised whole document                             \\
+		\hline
+		3                & Dec 21, 2023   & \nameHamdy        &
+		Added relational model diagram                                               \\
 		\hline
 	\end{tabularx}
 	\caption{Revision History}
@@ -160,12 +163,14 @@ Both user classes are expected to have basic computer literacy and
 access to the internet.
 We prototyped a block diagram as in figure \ref{fig:system-block-diagram}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\columnwidth]{drawings/system-block-diagram.drawio.png}
 	\caption{System Block Diagram}
 	\label{fig:system-block-diagram}
 \end{figure}
+
+\pagebreak
 
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
 \chapter{Specific Requirements}
@@ -208,7 +213,7 @@ We have prototyped some user interfaces as in figures
 	      includes a map with available routes pins to be clicked and a list
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -241,7 +246,7 @@ We have prototyped some user interfaces as in figures
 	\label{fig:ui-prototype1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -274,7 +279,7 @@ We have prototyped some user interfaces as in figures
 	\label{fig:ui-prototype2}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -325,7 +330,7 @@ transactions.
 The previous functions are viewed as a use-case diagram in
 figure \ref{fig:usecase-diagram}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{drawings/usecase-diagram.drawio.png}
 	\end{center}
@@ -333,6 +338,8 @@ figure \ref{fig:usecase-diagram}.
 	\label{fig:usecase-diagram}
 \end{figure}
 
+
+\pagebreak
 
 \section{Non-functional Requirements}
 \subsection{Performance Requirements}
@@ -351,10 +358,11 @@ figure \ref{fig:usecase-diagram}.
 
 \subsection{Database Design}
 
-The initial prototyping of the database is included in figure
-\ref{fig:entity-relationship-diagram}.
+The initial prototyping of the database is included in figures
+\ref{fig:entity-relationship-diagram} and 
+\ref{fig:relational-model}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{drawings/entity-relationship-diagram.drawio.png}
 	\end{center}
@@ -362,17 +370,29 @@ The initial prototyping of the database is included in figure
 	\label{fig:entity-relationship-diagram}
 \end{figure}
 
+\begin{figure}[ht!]
+	\begin{center}
+		\includegraphics[width=\columnwidth]{drawings/relational-model.drawio.png}
+	\end{center}
+	\caption{Relational Model Diagram}
+	\label{fig:relational-model}
+\end{figure}
+
+\pagebreak
+
 \subsection{Class Diagram}
 The initial class diagram of the application is included in figure
 \ref{fig:class-diagram}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\begin{center}
 		\includegraphics[width=\columnwidth]{drawings/class-diagram.drawio.png}
 	\end{center}
 	\caption{Class Diagram}
 	\label{fig:class-diagram}
 \end{figure}
+
+\pagebreak
 
 
 %-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
