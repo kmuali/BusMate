@@ -1,8 +1,7 @@
 cario = [30.0444, 31.2357]
-Hurghada = [27.2579, 33.8116]
 var map = L.map('map', {
-  center: Hurghada,
-  zoom: 14
+  center: cario,
+  zoom: 12
 });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -44,23 +43,7 @@ function getLatLng() {
   });
 }
 
-
-function getUserLocation(map) {
-  var marker = L.marker([0, 0]).addTo(map);
-
-  map.locate({ setView: true, maxZoom: 16 });
-
-  map.on('locationfound', function (e) {
-    marker.setLatLng(e.latlng);
-  });
-
-  map.on('locationerror', function (e) {
-    alert("Location access denied");
-  });
-}
-
 map.on('click', function (e) {
-  getUserLocation(map);
   CreatPopUp(e);
   SetWayPoints(sourceBtn, e.latlng, 0);
   SetWayPoints(destBtn, e.latlng, 1);
