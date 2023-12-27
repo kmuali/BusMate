@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}BusMate - Create Account{% endblock %}
+
+{% block main %}
+
+<main class="form-signin w-25 m-auto">
+  <div class="lead p-4">
+    <h1 class="fw-light text-center">
+      Login
+    </h1>
+  </div>
+
+  <form method="post" action="/login-submit">
+    <fieldset class="mb-3">
+      <legend>Account Type</legend>
+      <div class="form-check">
+        <input type="radio" name="ispassenger" class="form-check-input" id="exampleRadio1" value="true" checked>
+        <label class="form-check-label" for="exampleRadio1">Passenger, I need a ride.</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" name="ispassenger" class="form-check-input" id="exampleRadio2" value="false" >
+        <label class="form-check-label" for="exampleRadio2">Driver, I ride a microbus.</label>
+      </div>
+    </fieldset>
+    <div class="mb-3">
+      <label for="exampleInputPhone1" class="form-label">Phone Number</label>
+      <input type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" name="phone">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>  
+
+    <button type="submit" class="btn btn-primary mb-3 mt-3">login</button>
+
+    <div class="form-text">Haven't registered yet? <a href="/register">Create Account</a></div>
+  </form>
+</main>
+
+
+{% endblock %}

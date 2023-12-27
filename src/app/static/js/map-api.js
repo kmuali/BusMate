@@ -1,4 +1,4 @@
-cario = [30.0444, 31.2357]
+var cario = [30.0444, 31.2357]
 var map = L.map('map', {
   center: cario,
   zoom: 12
